@@ -1,0 +1,28 @@
+"use client"
+import React, { useState } from 'react'
+import Nav from './Nav'
+import MobileNav from './MobileNav'
+const NavContainer = () => {
+
+  const [showNav, setShowNav] = useState(false) 
+
+  // Open Nav function
+  const openNavHandler = () => {
+    setShowNav(true)
+  }
+
+  // Close Nav function
+  const closeNavHandler = () => {
+    setShowNav(false)
+  }
+
+  return (
+    <div>
+      <Nav openNav={openNavHandler} />
+      {/* CHANGED: showNav -> showMobileNav to match MobileNav's Props type */}
+      <MobileNav showMobileNav={showNav} closeNav={closeNavHandler} />
+    </div>
+  )
+}
+
+export default NavContainer
